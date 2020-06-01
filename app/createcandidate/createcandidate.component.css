@@ -1,0 +1,9 @@
+#headingform {
+    text-align: center;
+    font-style: bold;
+    color: blueviolet;
+}
+input[type=text] {
+    border: 2px solid;
+    border-radius: 4px;
+  }
