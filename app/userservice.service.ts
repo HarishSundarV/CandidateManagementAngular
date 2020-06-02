@@ -19,9 +19,14 @@ public getAllCandidates()
 {
     return this.http.get("http://localhost:8080/getallcandidates")
 }
-public getUserById()
+public getUserById(id:number)
 {
-  return this.http.get("http://localhost:8080/getcandidatebyid")
+  console.log("Service Id also called")
+  return this.http.get("http://localhost:8080/getcandidatebyid/"+id)
+}
+public getUserByLocation(location:string)
+{
+  return this.http.get("http://localhost:8080//getcandidatebylocation/"+location)
 }
 public deleteById(id:number)
 {
