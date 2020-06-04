@@ -21,6 +21,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
 import { TrendsComponent } from './trends/trends.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 const config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
@@ -39,6 +41,8 @@ export function provideConfig() {
     SearchdeleteComponent,
     HomeComponentComponent,
     TrendsComponent,
+    SidebarComponent,
+    
   
   ],
   imports: [
@@ -56,8 +60,8 @@ export function provideConfig() {
     MatListModule,
     ReactiveFormsModule,
     SocialLoginModule,
-    NgxChartsModule
-    
+    NgxChartsModule,
+    NgxPaginationModule
 
   ],
   providers: [

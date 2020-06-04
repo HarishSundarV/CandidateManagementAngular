@@ -32,4 +32,18 @@ public deleteById(id:number)
 {
   return this.http.delete("http://localhost:8080/deletecandidate/"+id)
 }
+public countByLocation()
+{
+  return this.http.get("http://localhost:8080/getlocationcount")
+}
+public getCandidateById(id:number)
+{
+  console.log("Service Id also called")
+  return this.http.get("http://localhost:8080/getuserbyid/"+id)
+}
+public updateCandidate(user:User,id:number)
+{
+  return this.http.post("http://localhost:8080/updatecandidate/"+id,user,{responseType:'text' as 'json'});
+}
+
 }

@@ -1,9 +1,9 @@
 
 .custab{
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     padding: 5px;
-    margin: 10% 0;
-    box-shadow: 3px 3px 2px #ccc;
+    /* margin: 10% 0;
+    box-shadow: 3px 3px 2px #ccc; */
     transition: 0.5s;
     }
 .custab:hover{
@@ -15,9 +15,10 @@
 
 #custom-search-input {
   margin:20;
-  width:50%;
+  width:100%;
   margin-top: 24px;
   padding: 2px;
+  right:-100px;
 }
 .col-md-12 {
   width: 62%;
@@ -33,6 +34,7 @@
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 43px;
+  border-color: blue;
 }
 
 #custom-search-input button {
@@ -49,7 +51,7 @@
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  color:green;
+  color:blue;
 }
 
 .search-query:focus + button {
@@ -67,7 +69,10 @@
   
     margin: auto;
     width: 50%;
-    border: 3px solid green;
+    /* border: 3px solid green; */
     padding: 10px;
     width:50%;
+}
+.search{
+  width:80%;
 }

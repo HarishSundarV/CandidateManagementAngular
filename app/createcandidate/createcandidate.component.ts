@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
 import { UserserviceService } from '../userservice.service';
+import { FormGroup } from '@angular/forms';
+import { AstMemoryEfficientTransformer } from '@angular/compiler';
 
 @Component({
   selector: 'app-createcandidate',
@@ -21,15 +23,23 @@ message:any;
   ngOnInit(): void {
   }
 
-userModel:User = new User('','','','','','','',false,false,false,false,false);
+userModel:User = new User(0,'','','','','','','');
 
 public enrollNow(){
+
  this.errorCheck();
   if (this.hasError==false){
     this.errorMsg="";
     console.log("calling the function")
   let resp=this.serv.doEnroll(this.userModel);
 resp.subscribe((data)=>this.message=data);
+this.userModel.firstName='';
+this.userModel.lastName='';
+this.userModel.location='';
+this.userModel.feedback='';
+this.userModel.contactNumber='';
+this.userModel.email='';
+// formGroup.reset();
   }
   else {
     this.errorMsg="Enter correct Contact Number";

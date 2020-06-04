@@ -1,0 +1,49 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+
+  position: fixed;
+  
+  background-color: #111;
+ 
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 12px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+
+/* 
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+} */
+</style>
+</head>
+<body>
+
+<div id="mySidenav" class="sidenav">
+ 
+  <a routerLink="/home" routerLinkActive="active">Candidate Management</a>
+  <a routerLink="#" routerLinkActive="active">Opportunity Management</a>
+  <a routerLink="#" routerLinkActive="active">Third</a>
+  <a routerLink="#" routerLinkActive="active">Fourth</a>
+</div>
+
+
+</body>
+</html> 
+
+<router-outlet>

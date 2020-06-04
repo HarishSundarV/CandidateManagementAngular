@@ -1,5 +1,6 @@
 export class User {
     constructor(
+        public id:number,
         public firstName: string,
         public lastName: string,
         public email: string,
@@ -7,10 +8,6 @@ export class User {
         public feedback: string,
         public jobDescription: string,
         public contactNumber: string,
-        public cpp: boolean,
-        public java: boolean,
-        public pytho: boolean,
-        public ang: boolean,
-        public spr:boolean
+      
     ){}
 }

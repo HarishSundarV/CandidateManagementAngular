@@ -1,15 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { UserserviceService } from '../userservice.service';
+import { LocationCount } from '../locationCount';
 
 @Component({
   selector: 'app-trends',
   templateUrl: './trends.component.html',
   styleUrls: ['./trends.component.css']
 })
+
 export class TrendsComponent implements OnInit {
+  constructor(private userService: UserserviceService) { }
   title = 'Angular Charts';
-
+ 
+  count:LocationCount;
+  counts:any;
   view: any[] = [600, 400];
-
+single;
   // options for the chart
   showXAxis = true;
   showYAxis = true;
@@ -22,43 +28,25 @@ export class TrendsComponent implements OnInit {
   timeline = true;
 
   colorScheme = {
-    domain: ['#9370DB', '#87CEFA', '#FA8072', '#FF7F50', '#90EE90', '#9370DB']
+    domain: ['red', 'blue', 'black', 'brown', 'yellow', 'green']
   };
-
-  //pie
   showLabels = true;
-
-  // data goes here
-public single = [
-  {
-    "name": "China",
-    "value": 2243772
-  },
-  {
-    "name": "USA",
-    "value": 1126000
-  },
-  {
-    "name": "Norway",
-    "value": 296215
-  },
-  {
-    "name": "Japan",
-    "value": 257363
-  },
-  {
-    "name": "Germany",
-    "value": 196750
-  },
-  {
-    "name": "France",
-    "value": 204617
-  }
-];
-
-  constructor() { }
-
   ngOnInit(): void {
+    
+    this.userService.countByLocation().subscribe(trends => {
+   console.log(trends)
+      let data: any[] =[];
+      for (let trend of trends)
+      {
+         data.push({
+             "name" : trend.location,
+             "value" : trend.count,
+          })
+         }
+        this.single =data;
+      });
+      
+ 
   }
 
 }

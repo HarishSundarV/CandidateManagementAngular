@@ -23,6 +23,7 @@ export class AppComponent implements OnInit {
   signinForm: FormGroup;
   user: SocialUser;
   loggedIn: boolean;  
+  title:string;
   constructor(private fb: FormBuilder, private authService: AuthService, private http:HttpClient, private router: Router) { }  
   ngOnInit() {
     this.signinForm = this.fb.group({
