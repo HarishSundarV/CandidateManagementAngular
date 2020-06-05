@@ -8,7 +8,7 @@ import { ViewComponent } from './view/view.component';
 
 
 const routes: Routes = [
-  {path:"home",component:HomeComponentComponent},
+  //{path:"home",component:HomeComponentComponent},
    {path:"register",component:CreatecandidateComponent},
    {path:"search",component:SearchdeleteComponent},
    {path:"trends",component:TrendsComponent},

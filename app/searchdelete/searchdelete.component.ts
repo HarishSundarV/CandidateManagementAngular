@@ -19,9 +19,12 @@ curr:number;
 harish:number;
 types=["id","location"];
 searchtype="football";
+searchbool:boolean;
+searchcontent:any;
   constructor(private userService: UserserviceService,private notificationService: NotificationService) { }
 
   searchGrad(searchtype:string,searchcontent:any){
+    this.searchbool=true;
     console.log(searchtype)
     console.log(searchcontent)
     if(this.searchtype=="location"){
@@ -35,9 +38,18 @@ searchtype="football";
       resp.subscribe((data)=> this.users=data);
     }
   }
-
+  public deleteCandidate(id:number)
+  {
+    if(confirm('Are you sure to delete this the record?'))
+    {
+      this.notificationService.warn('! Deleted Successfully');
+      let resp=this.userService.deleteById(id);
+    resp.subscribe((data)=>this.users=data)
+    }
+    
+  }
   ngOnInit(): void {
-   
+   this.searchbool=false;
   }
 
 }

@@ -5,7 +5,7 @@
 //   templateUrl: './app.component.html',
 //   styleUrls: ['./app.component.css']
 // })
-// export class AppComponent {
+// export clastitles AppComponent {
 //   title = 'Candidate Enrollment';
 // }
 
@@ -17,13 +17,14 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  title = 'Project';
   signinForm: FormGroup;
   user: SocialUser;
   loggedIn: boolean;  
-  title:string;
+  
   constructor(private fb: FormBuilder, private authService: AuthService, private http:HttpClient, private router: Router) { }  
   ngOnInit() {
     this.signinForm = this.fb.group({

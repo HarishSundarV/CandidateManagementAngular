@@ -1,4 +1,17 @@
 .sidenav
 {
     width:150px;
+    color:white;
+}
+
+.sign{
+    align-self: center;
+    background-color: transparent;   
+    color: white;
+    text-align: center;
+    border:0px;
+margin-left: 22px;
+}
+span{
+    color:white;
 }

@@ -15,22 +15,25 @@
 
 <body class="bg-light">
     <div  class="container">
-        <div class="signoutoption" *ngIf="loggedIn===true">
+       
+       <!-- <div class="signoutoption" *ngIf="loggedIn===true">
             <button style="float:right" type="button" (click)="signOut()" class="btn btn-primary">Sign Out</button>
         </div>
+        -->
         
             <div  style="top:0px;right:-300px">
             <div class="col-md-8">
 
 
 
-                <div style="top:0px;right:-300px" class="centeralign" *ngIf="loggedIn===false">
+                <div style="margin-left: 380px;" *ngIf="loggedIn===false">
                     <h1 class="text-center py-4">AU Management Portal</h1>
                     <br>
 
                     <br>
                     <br>
-                    <button style="top:0px;right:-300px" type="button" (click)="signInWithGoogle()" class="btn btn-primary">Sign In With
+                    <button style="margin-left: 38px; background-color:rgb(55, 53, 173);
+                    color:white;border-radius: 5px;" type="button" (click)="signInWithGoogle()" >Sign In With
                         Google</button>
                 </div>
             </div>
@@ -39,6 +42,7 @@
     <div *ngIf="loggedIn===true">
         
         <app-sidebar></app-sidebar>
+       <app-home-component></app-home-component>
         <router-outlet></router-outlet>
         
     </div>
@@ -47,5 +51,3 @@
 </body>
 
 </html>
-<!-- <app-edit></app-edit> -->
-<!-- <router-outlet></router-outlet> -->

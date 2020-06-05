@@ -24,22 +24,21 @@ body {
   transition: 0.3s;
 }
 
-
-/* 
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-} */
 </style>
 </head>
 <body>
 
 <div id="mySidenav" class="sidenav">
  
-  <a routerLink="/home" routerLinkActive="active">Candidate Management</a>
-  <a routerLink="#" routerLinkActive="active">Opportunity Management</a>
+  <a routerLink="/home" routerLinkActive="active"><span>Candidate Management</span></a>
+  <a routerLink="#" routerLinkActive="active"><span>Opportunity Management</span></a>
   <a routerLink="#" routerLinkActive="active">Third</a>
   <a routerLink="#" routerLinkActive="active">Fourth</a>
+
+  <div >
+    <button class="sign" (click)="signOut()" >Sign Out</button>
+  </div>
+ 
 </div>
 
 

@@ -63,14 +63,15 @@ export function provideConfig() {
     ReactiveFormsModule,
     SocialLoginModule,
     NgxChartsModule,
-    NgxPaginationModule
-
+    NgxPaginationModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [
     {
       provide: AuthServiceConfig,
       useFactory: provideConfig
-    },UserserviceService
+    },UserserviceService,
   ],
   // providers: [UserserviceService],
   bootstrap: [AppComponent]

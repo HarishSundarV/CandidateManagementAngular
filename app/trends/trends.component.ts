@@ -16,6 +16,7 @@ export class TrendsComponent implements OnInit {
   counts:any;
   view: any[] = [600, 400];
 single;
+trends:any;
   // options for the chart
   showXAxis = true;
   showYAxis = true;
@@ -33,9 +34,9 @@ single;
   showLabels = true;
   ngOnInit(): void {
     
-    this.userService.countByLocation().subscribe(trends => {
+    this.userService.countByLocation().subscribe((trends:any[]) => {
    console.log(trends)
-      let data: any[] =[];
+      let data: any[] =[];     
       for (let trend of trends)
       {
          data.push({
