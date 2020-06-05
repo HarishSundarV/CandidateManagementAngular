@@ -8,3 +8,9 @@ input[type=text] {
     border-radius: 4px;
     
   }
+  #header
+  {
+      align-self: center;
+      align-content: center;
+      margin-left: 150px;
+  }

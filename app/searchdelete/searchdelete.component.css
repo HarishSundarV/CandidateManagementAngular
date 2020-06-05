@@ -10,9 +10,21 @@
     box-shadow: 3px 3px 0px transparent;
     transition: 0.5s;
     }
-
-   
-
+ #header
+    {
+        align-self: center;
+        align-content: center;
+        margin-left: 150px;
+    }
+#center
+{
+  margin-left:400px;
+}
+.searchcontent
+{
+  margin-left: 400px;
+  width:48%;
+}
 #custom-search-input {
   margin:20;
   width:100%;

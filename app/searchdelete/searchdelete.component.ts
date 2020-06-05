@@ -12,53 +12,32 @@ export class SearchdeleteComponent implements OnInit {
   loc:string;
 users:any;
 p: number = 1;
-userSelected:User;
+user:User;
 showedit=false;
 id:number;
 curr:number;
+harish:number;
 types=["id","location"];
-type="football";
+searchtype="football";
   constructor(private userService: UserserviceService,private notificationService: NotificationService) { }
-public deleteCandidate(id:number)
-{
-  if(confirm('Are you sure to delete this the record?'))
-  {
-    this.notificationService.warn('! Deleted Successfully');
-    let resp=this.userService.deleteById(id);
-  resp.subscribe((data)=>this.users=data)
+
+  searchGrad(searchtype:string,searchcontent:any){
+    console.log(searchtype)
+    console.log(searchcontent)
+    if(this.searchtype=="location"){
+     
+      let resp=this.userService.getUserByLocation(searchcontent);
+      resp.subscribe((data)=> this.users=data);
+    }
+    else if(this.searchtype=="id"){
+     this.harish=searchcontent;
+      let resp=this.userService.getUserById(this.harish);
+      resp.subscribe((data)=> this.users=data);
+    }
   }
-  
-}
-public GetCandidateByLoc()
-{
-  let resp=this.userService.getUserByLocation(this.loc)
-  resp.subscribe((data)=>this.users=data)
-  console.log(this.users)
-}
-public GetCandidateById()
-{
-  console.log("Id getting called ")
-  let resp=this.userService.getUserById(this.id)
-  resp.subscribe((data)=>this.users=data)
-}
-public openEdit(id:number,user:User)
-{
-  this.curr=id;
-  this.showedit=true;
-  this.userSelected=user;
-}
-public updateDetails(id:number,user:User){
 
-
-  this.showedit=false;
-  // console.log(id);
-  // console.log(grad);
-  let resp=this.userService.updateCandidate(user,id);
-  resp.subscribe((data)=> this.users=data);
-}
   ngOnInit(): void {
-    let resp= this.userService.getAllCandidates();
-    resp.subscribe((data)=>this.users=data)
+   
   }
 
 }

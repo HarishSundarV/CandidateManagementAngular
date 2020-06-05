@@ -4,6 +4,7 @@ import { CreatecandidateComponent } from './createcandidate/createcandidate.comp
 import { SearchdeleteComponent } from './searchdelete/searchdelete.component';
 import { HomeComponentComponent } from './home-component/home-component.component';
 import { TrendsComponent } from './trends/trends.component';
+import { ViewComponent } from './view/view.component';
 
 
 const routes: Routes = [
@@ -11,7 +12,7 @@ const routes: Routes = [
    {path:"register",component:CreatecandidateComponent},
    {path:"search",component:SearchdeleteComponent},
    {path:"trends",component:TrendsComponent},
-   
+   {path:"view",component:ViewComponent},
    
    
 ];

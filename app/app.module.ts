@@ -23,6 +23,7 @@ import { TrendsComponent } from './trends/trends.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { ViewComponent } from './view/view.component';
 const config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
@@ -42,6 +43,7 @@ export function provideConfig() {
     HomeComponentComponent,
     TrendsComponent,
     SidebarComponent,
+    ViewComponent,
     
   
   ],
