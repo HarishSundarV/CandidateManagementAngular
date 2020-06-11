@@ -5,8 +5,9 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
 <!------ Include the above in your HEAD tag ---------->
 <h1 class="card-header bg-info" id="header"> Search Candidates </h1>
+<br>
 
-<h5>Search term</h5>
+<p>Search Term</p>
 <input class="searchcontent" type="text" name="searchcontent" [(ngModel)]="searchcontent">
 <div class="form-group">
     <label>Search criteria</label>
@@ -17,12 +18,11 @@
 <button type="button" class="btn btn-primary" id="center" (click)="searchGrad(searchtype,searchcontent)">Search
     Candidate</button>
 
-<!-- <h1>{{type}}</h1> -->
+
 <br>
 <br>
-<div *ngIf="searchbool==true">
-    <div class="container" container" id="centers">
-        <div class="container">
+<div *ngIf="searchbool==true" class="centers">
+        <div class="container" >
             <div class="container">
                 <div class="row col-md-6 col-md-offset-2 custyle">
                     <table class="table table-striped custab">

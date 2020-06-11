@@ -1,19 +1,9 @@
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'app-root',
-//   templateUrl: './app.component.html',
-//   styleUrls: ['./app.component.css']
-// })
-// export clastitles AppComponent {
-//   title = 'Candidate Enrollment';
-// }
-
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,NgZone} from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService,GoogleLoginProvider, SocialUser } from 'angularx-social-login';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { InterceptorService } from './interceptor.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -25,7 +15,7 @@ export class AppComponent implements OnInit {
   user: SocialUser;
   loggedIn: boolean;  
   
-  constructor(private fb: FormBuilder, private authService: AuthService, private http:HttpClient, private router: Router) { }  
+  constructor(private fb: FormBuilder, private authService: AuthService, private http:HttpClient, private router: Router,private service:InterceptorService,private ngZone:NgZone) { }  
   ngOnInit() {
     this.signinForm = this.fb.group({
       email: ['', Validators.required],
@@ -45,7 +35,10 @@ export class AppComponent implements OnInit {
           if (oAuthResponse['hd'] && oAuthResponse['hd']=="accoliteindia.com")
           {
             this.loggedIn=true;
-            localStorage.setItem('token',response.idToken);
+            const str=response.idToken;
+               const str1=str.substring(0,10);
+               console.log(str1);
+            localStorage.setItem('token',str1);
             //this.router.navigateByUrl('/dashboard');
           }
           else{
@@ -55,11 +48,34 @@ export class AppComponent implements OnInit {
         })
       }
     )
+    let resp=this.service.checkUser();
+         
+      resp.subscribe(result => this.ngZone.run(() =>{
+        
+        let x=JSON.stringify(result);
+        console.log("App component ts");
+        console.log(x);
+         if(x === "Login sucessfull and User is Authenticated")
+         {
+          //this.router.navigateByUrl("/opportunity");
+          this.loggedIn=true;
+        }
+        else
+         {
+          //this.router.navigateByUrl("/login");    
+          this.loggedIn=false;
+         }
+     
+   },(error) => {
+     alert(JSON.stringify(error, undefined, 2));
+    }));
   }
+
+
+
   signOut(): void {
     this.authService.signOut();
     this.loggedIn=false;
-    //this.router.navigate(['']);
   }
  
 }

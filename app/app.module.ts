@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CreatecandidateComponent } from './createcandidate/createcandidate.component';
 import { UserserviceService } from './userservice.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SearchdeleteComponent } from './searchdelete/searchdelete.component';
 import { HomeComponentComponent } from './home-component/home-component.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -24,6 +24,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { ViewComponent } from './view/view.component';
+import { InterceptorService } from './interceptor.service';
 const config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
@@ -72,6 +73,11 @@ export function provideConfig() {
       provide: AuthServiceConfig,
       useFactory: provideConfig
     },UserserviceService,
+{
+    provide: HTTP_INTERCEPTORS,
+    useClass: InterceptorService,
+    multi: true
+  },
   ],
   // providers: [UserserviceService],
   bootstrap: [AppComponent]

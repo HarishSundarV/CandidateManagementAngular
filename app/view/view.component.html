@@ -62,7 +62,16 @@
                                         <small class="text-danger" *ngIf="contactNumber.errors.pattern">Contact number must be of 10 digits</small>        
                                     </div>
                                 </div>
-                        
+                                <div class="search">
+                                    <label>Job Description</label>
+                                    <select required #jobDescription="ngModel"
+                                        [class.is-invalid]="jobDescription.invalid && jobDescription.touched" class="custom-select"
+                                        name="jobDescription" [(ngModel)]="user.jobDescription">
+                                        <option *ngFor="let j of Role">{{j}}</option>
+                                    </select>
+                                    <small class="text-danger" [class.d-none]="jobDescription.valid || jobDescription.untouched">Please specify
+                                        the Role</small>
+                                </div>
                                 
                             </div>
                             <button class="btn btn-primary" type="submit" (click)="updateDetails(user.id,user)">Submit Details</button>
