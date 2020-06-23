@@ -3,6 +3,7 @@ import { User } from '../user';
 import { UserserviceService } from '../userservice.service';
 import { FormGroup } from '@angular/forms';
 import { AstMemoryEfficientTransformer } from '@angular/compiler';
+import { NotificationService } from '../notification.service';
 
 @Component({
   selector: 'app-createcandidate',
@@ -18,7 +19,7 @@ export class CreatecandidateComponent implements OnInit {
   errorMsg="";
  
 
-  constructor(private serv: UserserviceService) { }
+  constructor(private serv: UserserviceService,private notificationService:NotificationService) { }
 message:any;
   ngOnInit(): void {
   }
@@ -31,6 +32,7 @@ public enrollNow(){
   if (this.hasError==false){
     this.errorMsg="";
     console.log("calling the function")
+    this.notificationService.warn('! Added Successfully');
   let resp=this.serv.doEnroll(this.userModel);
 resp.subscribe((data)=>this.message=data);
 this.userModel.firstName='';

@@ -30,10 +30,11 @@
                             <tr>
                                 <th>ID</th>
                                 <th>First Name</th>
-                                <th>Last Name</th>
+                               
                                 <th>Email</th>
                                 <th>Feedback</th>
                                 <th>Location</th>
+                                <th>Skills</th>
                                 <th>Job Description</th>
                                 <th>Contact Number</th>
                                 <th>Delete</th>
@@ -44,10 +45,11 @@
                             <tr *ngFor="let user of this.users">
                                 <td>{{user.id}}</td>
                                 <td>{{user.firstName}}</td>
-                                <td>{{user.lastName}}</td>
+                              
                                 <td>{{user.email}}</td>
                                 <td>{{user.feedback}}</td>
                                 <td>{{user.location}}</td>
+                                <td>{{user.lastName}}</td>
                                 <td>{{user.jobDescription}}</td>
                                 <td>{{user.contactNumber}}</td>
                                 <td class="text-center"><button class="btn btn-danger btn-xs"

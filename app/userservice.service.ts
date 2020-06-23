@@ -36,6 +36,14 @@ public countByLocation()
 {
   return this.http.get("http://localhost:8080/getlocationcount")
 }
+public countByJob()
+{
+  return this.http.get("http://localhost:8080/getjob")
+}
+public countBySkill()
+{
+  return this.http.get("http://localhost:8080/getskill")
+}
 public getCandidateById(id:number)
 {
   console.log("Service Id also called")

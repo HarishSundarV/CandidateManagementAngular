@@ -15,7 +15,8 @@ export class TrendsComponent implements OnInit {
   count:LocationCount;
   counts:any;
   view: any[] = [600, 400];
-single;
+single:any;
+job:any;
 trends:any;
   // options for the chart
   showXAxis = true;
@@ -23,7 +24,8 @@ trends:any;
   gradient = false;
   showLegend = true;
   showXAxisLabel = true;
-  xAxisLabel = 'Locations';
+  xAxisLabel1 = 'Locations';
+  xAxisLabel2 = 'Job description';
   showYAxisLabel = true;
   yAxisLabel = 'Number of people';
   timeline = true;
@@ -46,6 +48,18 @@ trends:any;
          }
         this.single =data;
       });
+      this.userService.countByJob().subscribe((trends:any[]) => {
+        console.log(trends)
+           let data: any[] =[];     
+           for (let trend of trends)
+           {
+              data.push({
+                  "name" : trend.location,
+                  "value" : trend.count,
+               })
+              }
+             this.job =data;
+           });
       
  
   }

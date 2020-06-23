@@ -6,15 +6,38 @@
         <h1 class="card-header bg-info">
             Welcome to Trends Page
         </h1>
-        <h1 class="title">
-            Candidates per location 
-        </h1>
-        <div class="row ml-5" class="center">
+      
+        <div class="center">
+            <h1>
+                Candidates per Location 
+            </h1>
+            <br>
+            <br>
             <div class="col">
                 <div class="row">
                     <ngx-charts-bar-vertical [view]="view" [scheme]="colorScheme" [results]="single"
                         [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend"
-                        [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
+                        [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel1"
+                        [yAxisLabel]="yAxisLabel">
+                    </ngx-charts-bar-vertical>
+
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h1>
+                Candidates per Job 
+            </h1>
+            <br>
+            <br>
+
+            <div class="col">
+                <div class="row">
+                    <ngx-charts-bar-vertical [view]="view" [scheme]="colorScheme" [results]="job"
+                        [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend"
+                        [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel2"
                         [yAxisLabel]="yAxisLabel">
                     </ngx-charts-bar-vertical>
 
